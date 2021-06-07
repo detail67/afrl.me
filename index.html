@@ -37,6 +37,30 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]--> 
 
+
+    <!--begin imagesteps -->
+    <script type="text/javascript" language="javascript">
+        window.onload = function () {
+            var rotator = document.getElementById("rotator");
+            var images = rotator.getElementsByTagName("img");
+            for (var i = 1; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+            var counter = 1;
+            setInterval(function () {
+                for (var i = 0; i < images.length; i++) {
+                    images[i].style.display = "none";
+                }
+                images[counter].style.display = "inline-block";
+                counter++;
+                if (counter == images.length) {
+                    counter = 0;
+                }
+            }, 150);
+        };
+    </script>
+
+
 </head>
 
 <body id="about">
@@ -49,7 +73,7 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <!--a class="navbar-brand" href="#about"><span style="text-transform:lowercase;"><span style="color:#F05F40;font-size:24px;">[</span>de<span style="color:#F05F40;">.</span>tail<span style="color:#F05F40;font-size:24px;">]</span></span></a-->
-                <a class="navbar-brand" href="#about"><img src="img/detail_logo.png" height="22px"></a>
+                <a class="navbar-brand page-scroll" href="#about"><img src="img/detail_logo.png" height="22px"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,9 +88,9 @@
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
                     </li>
-                    <!--li>
-                        <a class="page-scroll" href="#portfolio">Testimonials</a>
-                    </li-->
+                    <li>
+                        <a class="page-scroll" href="#testimonials">Testimonials</a>
+                    </li>
                     <li>
                         <a class="page-scroll" href="#rates">Rates</a>
                     </li>
@@ -83,10 +107,29 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading" class="sr-iconz" style="visible:hidden;"><img src="img/detail_logo_lrg.png"/></h1>
+                <!--h1 id="homeHeading" class="sr-iconz" style="visible:hidden;"-->
+                <h1 id="homeHeading">
+                    <div id="rotator">
+                    <img src="img/detail_scribble_1.png" style="display:inline-block;" />
+                    <img src="img/detail_scribble_2.png" style="display:none;" />
+                    <img src="img/detail_scribble_3.png" style="display:none;" />
+                    <img src="img/detail_scribble_4.png" style="display:none;" />
+                    <img src="img/detail_scribble_5.png" style="display:none;" />
+                    <img src="img/detail_scribble_6.png" style="display:none;" />
+                    <img src="img/detail_scribble_7.png" style="display:none;" />
+                    </div>
+                </h1>
                 <hr class="sr-iconz">
                 <p class="sr-iconz text-faded">de<span style="color:#F05F40;">.</span>tail has been providing premium technical game development support & Lua scripts to Visionaire Studio: Adventure Game Engine users under the guise of AFRLme since 2012.</p>
-                <span class="sr-iconz"><a href="#services" class="btn btn-primary btn-xl page-scroll">Find Out More</a></span>
+                <!--span class="sr-iconz"><a href="#services" class="btn btn-primary btn-xl page-scroll">Find Out More</a></span-->
+                <span>
+                <a href="https://www.facebook.com/VisionaireStudio" target="_blank" class="social-icon"><img src="img/facebook_sml.png" class="sr-iconz" height="64px" /></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://twitter.com/visstudio_en" target="_blank" class="social-icon"><img src="img/twitter_sml.png" class="sr-iconz" height="64px" /></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://discord.gg/prQJMs9" target="_blank" class="social-icon"><img src="img/discord_sml.png" class="sr-iconz" height="64px" /></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.patreon.com/AFRLme" target="_blank" class="social-icon"><img src="img/patreon_sml.png" class="sr-iconz" height="64px" /></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.twitch.tv/afrlme" target="_blank" class="social-icon"><img src="img/twitch_sml.png" class="sr-iconz" height="64px" /></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://www.youtube.com/channel/UCrhA2M8PYZS0tEWC0VIEJ6g" target="_blank" class="social-icon"><img src="img/youtube_sml.png" class="sr-iconz" height="64px" /></a>
+                </span>
             </div>
         </div>
     </header>
@@ -144,144 +187,138 @@
 
     <section class="no-padding bg-secondary" id="portfolio">
         <div class="container-fluid">
-            <div class="row no-gutter popup-gallery">
+            <div class="row no-gutter">
 
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/zak2.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://alld-game.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/alittlelessdesperation_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Visionaire Studio
-                                </div>
-                                <div class="project-name">
-                                    Zak McKracken: Between Time And Space (director's cut)
-                                </div>
+                                <img src="img/portfolio/thumbnails/alittlelessdesperation_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://theblackcube.fr/asa.html" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/asa_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Visionaire Studio
-                                </div>
-                                <div class="project-name">
-                                    The Mystery of Oak Island
-                                </div>
+                                <img src="img/portfolio/thumbnails/asa_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/paradigm.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://saintandsimon.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/asongforviggo_thumb.gif" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Jacob Janerka
-                                </div>
-                                <div class="project-name">
-                                    Paradigm
-                                </div>
+                                <img src="img/portfolio/thumbnails/asongforviggo_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="https://insertdisk22.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/bornpunk_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Simon Says: Watch! Play!
-                                </div>
-                                <div class="project-name">
-                                    ASA: A Space Adventure
-                                </div>
+                                <img src="img/portfolio/thumbnails/bornpunk_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://theblackcube.fr/catyph.html" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/catyph_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Simon Says: Watch! Play!
-                                </div>
-                                <div class="project-name">
-                                    Catyph: The Kunci Experiment
-                                </div>
+                                <img src="img/portfolio/thumbnails/catyph_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://celestialpalace.net" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/celestialpalace_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    The Universe of Seven (U7)
-                                </div>
-                                <div class="project-name">
-                                    Minotaur
-                                </div>
+                                <img src="img/portfolio/thumbnails/celestialpalace_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://uof7.com/minotaur" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/minotaur_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Deaf Bird Entertainment
-                                </div>
-                                <div class="project-name">
-                                    A Little Less Desperation
-                                </div>
+                                <img src="img/portfolio/thumbnails/minotaur_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://nnlgame.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/ninenoirlives_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Orrery Games
-                                </div>
-                                <div class="project-name">
-                                    Midnight at the Celestial Palace
-                                </div>
+                                <img src="img/portfolio/thumbnails/ninenoirlives_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://paradigmadventure.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/paradigm_thumb.png" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    SaintandSimon
-                                </div>
-                                <div class="project-name">
-                                    A Song for Viggo
-                                </div>
+                                <img src="img/portfolio/thumbnails/paradigm_logo.png" class="img-responsive logo" />
                             </div>
                         </div>
                     </a>
                 </div>
-
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://stasisgame.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/stasis_thumb.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <img src="img/portfolio/thumbnails/stasis_logo.png" class="img-responsive logo" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://tpaoe.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/tpaoe_thumb.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <img src="img/portfolio/thumbnails/tpaoe_logo.png" class="img-responsive logo" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://badtalestudios.com" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/underthatrain_thumb.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <img src="img/portfolio/thumbnails/underthatrain_logo.png" class="img-responsive logo" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                    <a href="http://www.mckracken.net/cms/between-timespace-english.html" target="_blank" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/zak2_thumb.png" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <img src="img/portfolio/thumbnails/zak2_logo.png" class="img-responsive logo" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
 
             </div>
         </div>
@@ -305,14 +342,14 @@
             </div>
           </div>
           <div class="row sr-button" style="visible:hidden;">
-            <div class='col-md-offset-2 col-md-8'>
+            <!--div class='col-md-offset-2 col-md-8'--><div class='col-md-10'>
               <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                 <!-- Bottom Carousel Indicators -->
-                <ol class="carousel-indicators">
+                <!--ol class="carousel-indicators">
                   <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
                   <li data-target="#quote-carousel" data-slide-to="1"></li>
                   <li data-target="#quote-carousel" data-slide-to="2"></li>
-                </ol>
+                </ol-->
         
                 <!-- Carousel Slides / Quotes -->
                 <div class="carousel-inner">
@@ -322,12 +359,11 @@
                   <blockquote>
                     <div class="row">
                       <div class="col-sm-3 text-center">
-                        <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" style="width: 100px;height:100px;">
-                        <!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+                        <img class="img-circle" src="img/testimonials/insertdisk22_tm.png"" style="width: 100px;height:100px;">
                       </div>
                       <div class="col-sm-9">
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-                        <small>Someone famous</small>
+                        <p>I contracted Lee to code a UI element for my game that was giving me some trouble. His pricing was fair, he finished the job quickly, and the results were superb.</p>
+                        <small>Falko, Insert Disk 22 [Born Punk]</small>
                       </div>
                     </div>
                   </blockquote>
@@ -337,30 +373,15 @@
                   <blockquote>
                     <div class="row">
                       <div class="col-sm-3 text-center">
-                        <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/mijustin/128.jpg" style="width: 100px;height:100px;">
+                        <img class="img-circle" src="img/testimonials/silvernode_tm.png"" style="width: 100px;height:100px;">
                       </div>
                       <div class="col-sm-9">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
-                        <small>Someone famous</small>
+                        <p>A consummate professional and extremely knowledgeable, Lee takes the guesswork and frustration out of any issue. He has been a key success factor for our project and will continue to be in the future!</p>
+                        <small>William Kruger, Silvernode Studios [Nine Noir Lives]</small>
                       </div>
                     </div>
                   </blockquote>
                 </div>
-                <!-- Quote 3 -->
-                <div class="item">
-                  <blockquote>
-                    <div class="row">
-                      <div class="col-sm-3 text-center">
-                        <img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/keizgoesboom/128.jpg" style="width: 100px;height:100px;">
-                      </div>
-                      <div class="col-sm-9">
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
-                        <small>Someone famous</small>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-              </div>
         
               <!-- Carousel Buttons Next/Prev -->
               <!--a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
@@ -397,9 +418,9 @@
 
                 <tr height="260px" class="sr-icon">
                     <td style="width:32%; visibility:hidden;" class="bg-primary sr-iconzz_left rates_td"><strong><h2>INDIE</h2></strong><br/>
-                    <div class="circle" style="font-size: 24px;">€20</div><br/>Take advantage of our discounted <span style="color:#F05F40;">indie</span> development rate & have a beer on us!</td><td></td>
+                    <div class="circle" style="font-size: 24px;">€26</div><br/>Take advantage of our discounted <span style="color:#F05F40;">indie</span> development rate & have a beer on us!</td><td></td>
                     <td style="width:32%; visibility:hidden;" class="bg-primary sr-iconzz rates_td"><strong><h2>COMMERCIAL</h2></strong><br/>
-                    <div class="circle" style="font-size: 24px;">€35</div><br/>Our <span style="color:#F05F40;">commercial</span> development rate is perfectly affordable by all!</td><td></td>
+                    <div class="circle" style="font-size: 24px;">€52</div><br/>Our <span style="color:#F05F40;">commercial</span> development rate is perfectly affordable by all!</td><td></td>
                     <td style="width:32%; visibility:hidden;" class="bg-primary sr-iconzz_right rates_td"><strong><h2>Flexible</h2></strong><br/>
                     <div class="circle" style="font-size: 24px;"><i class="fa fa-sliders fa-1x"></i></div><br/>Don't like our <span style="color:#F05F40;">fixed</span> rates? We also offer <span style="color:#F05F40;">flexible</span> development rates!</td>
                 </tr>
@@ -408,7 +429,7 @@
 
                 </table>
 
-                <div class="col-lg-12 text-center"><p style="font-size: 12px;" class="sr"><i>All rates are in €uros. Development rates are hourly. Scripting rates are x cents per character (letter/number, etc).<br/><span style="font-size:12px;"><i>For more information please enquire via the contact form.</i></span></i></p></div>
+                <div class="col-lg-12 text-center"><p style="font-size: 12px;" class="sr"><i>All rates are in €uros. Development rates are hourly. Scripting rates are x cents per character (letter/number, etc).<br/><span style="font-size:12px;"><i>For more information please enquire via our Discord server.</i></span></i></p></div>
 
                 </div>
             </div>
@@ -418,26 +439,32 @@
     <section id="contact" class="footer bg-primary">
 
 
-    <div id="contactwrap">
+    <div id="contactwrap"">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>Feel free to contact me at any time!</p>
+                    <!--p>Feel free to contact me at any time!</p-->
+                    <p>&nbsp;</p>
                     <p></p>
                     <p>
                         <small>
                         de<span style="color:#F05F40;">.</span>tail<br/>
                         Roquetas de Mar<br/>
                         Almería<br/>
-                        Spain
+                        Spain<br/>
+                        <!--span>
+                            <a href="https://twitter.com/visstudio_en" target="_blank" class="social-icon"><img src="img/facebook_sml.png" class="sr-iconz" height="32px" /></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://twitter.com/visstudio_en" target="_blank" class="social-icon"><img src="img/twitter_sml.png" class="sr-iconz" height="32px" /></a>&nbsp;&nbsp;&nbsp;
+                            <a href="https://discord.gg/4EMSRem" target="_blank" class="social-icon"><img src="img/discord_sml.png" class="sr-iconz" height="32px" /></a>
+                        </span-->
                         </small>
                     </p>
                     <p>
                         <small>
-                        Email: <a href="mailto:afrlme@outlook.com">afrlme@outlook.com</a><br/>
-                        Skype: <a href="skype:AFRLme?add">AFRLme</a><br/>
-                        Twitter: <a href="https://twitter.com/visstudio_en" target="_blank">VisStudio_EN</a><br/>
-                        Patreon: <a href="https://www.patreon.com/AFRLme?ty=h" target="_blank">AFRLme</a>
+                        <!--Twitter: <a href="https://twitter.com/visstudio_en" target="_blank">VisStudio_EN</a><br/-->
+                        <!--a href="https://twitter.com/visstudio_en?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @visstudio_en</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script-->
+                        <!--a class="twitter-timeline" data-lang="en" data-width="344" data-height="200" data-theme="light" data-link-color="#F05F40" href="https://twitter.com/VisStudio_En?ref_src=twsrc%5Etfw">Tweets by VisStudio_En</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script-->
+                        <!--div width="200px"><a href="https://www.patreon.com/bePatron?u=3263567" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script></div-->
                         </small>
                     </p>
             
@@ -445,10 +472,10 @@
                 
                 <div class="col-lg-6">
 
-<form role="form" id="contactForm" class="form-horizontal" action="php/form-process.php">
+<!--form role="form" id="contactForm" class="form-horizontal" action="php/form-process.php">
 <fieldset>
 
-<!-- Prepended text-->
+<!-- Prepended text>
 <div class="form-group">
   <div class="col-md-12">
     <div class="input-group">
@@ -458,7 +485,7 @@
   </div>
 </div>
 
-<!-- Prepended text-->
+<!-- Prepended text>
 <div class="form-group">
   <div class="col-md-12">
     <div class="input-group">
@@ -469,7 +496,7 @@
   </div>
 </div>
 
-<!-- Select Basic -->
+<!-- Select Basic >
 <div class="form-group">
   <div class="col-md-12">
     <select id="subject" name="subject" class="form-control" required>
@@ -484,15 +511,20 @@
   </div>
 </div>
 
-<!-- Textarea -->
+<!-- Textarea >
 <div class="form-group">
-  <div class="col-md-12">                     
+  <div class="col-md-9" style="padding-right:2px;">                     
     <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." required="yes"></textarea>
+  </div>
+  <div class="col-md-3">
+    <button type="submit" id="form-submit" class="btn btn-primary" style="height:71px; width:100%; border-radius:3px !important;">Submit</button>&nbsp;<!--span id="submit-status"></span>
+    <div id="msgSubmit" class="h3 text-center hidden"></div>
+    <div class="clearfix"></div>
   </div>
 </div>
 
-<!-- Button -->
-<div class="form-group">
+<!-- Button >
+<!--div class="form-group">
   <div class="col-md-12">
     <button type="submit" id="form-submit" class="btn btn-primary btn-xl">Submit</button>&nbsp;<span id="submit-status"></span>
     <div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -501,15 +533,34 @@
 </div>
 
 </fieldset>
-</form>
+</form-->
 
 
-                </div>
-            
+
+<!--script type="text/javascript" src="//cdn.jsdelivr.net/discord-widget/latest/discord-widget.min.js"></script>
+<script type="text/javascript">
+discordWidget.init({
+  serverId: '221787321987497984',
+  title: 'Want to get in touch with us? Join our Discord server!',
+  join: true,
+  alphabetical: true,
+  theme: 'dark',
+  hideChannels: true,
+  showAllUsers: true,
+  allUsersDefaultState: true,
+  showNick: true
+});
+discordWidget.render();
+</script>
+
+<div class="discord-widget"></div-->
+<a href="https://discord.gg/prQJMs9" target="_blank" class="social-icon2"><img src="img/detail_discord.png"></a>
+
             </div><! --/row -->
         </div><!-- /container -->
     </div>
     </section>
+
 
     <!-- back to top button -->
     <a id="back-to-top" href="#" class="btn btn-primary btn-2x back-to-top" role="button" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
