@@ -7,7 +7,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  /*background: #1a1a1a url("/img/bg_content.png") repeat;*/
+  /*background: #1a1a1a url("../img/bg_content.png") repeat;*/
   background: #1a1a1a url("/img/dark_bg2.png") repeat;
   color: white;
 }
@@ -47,18 +47,18 @@ p {
 }
 .bg-primary {
   /*background-color: #F05F40;*/
-  background-image: url("/img/dark_bg.png");
+  background-image: url("../img/dark_bg.png");
   background-repeat: repeat;
 }
 .bg-dark {
   /*background-color: #222222;*/
-  background-image: url("/img/dark_bg.png");
+  background-image: url("../img/dark_bg.png");
   background-repeat: repeat;
   color: white;
 }
 .bg-secondary {
   /*background-color: #222222;*/
-  background-image: url("/img/dark_bg2.png");
+  background-image: url("../img/dark_bg2.png");
   background-repeat: repeat;
   color: white;
 }
@@ -75,7 +75,7 @@ aside {
   padding: 0;
 }
 .navbar-default {
-  background-image: url("/img/dark_bg.png");
+  background-image: url("../img/dark_bg.png");
   background-repeat: repeat;
   /*border-color: rgba(34, 34, 34, 0.05);*/
   border: none;
