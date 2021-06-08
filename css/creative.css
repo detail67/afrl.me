@@ -665,6 +665,18 @@ textarea {
 }
 
 .back-to-top-link {
+  
+   // `fixed` is fallback when `sticky` not supported
+  position: fixed;
+  // preferred positioning, requires prefixing for most support, and not supported on Safari
+  // @link https://caniuse.com/#search=position%3A%20sticky
+  position: sticky;
+  // reinstate clicks
+  pointer-events: all;
+  // achieves desired positioning within the viewport
+  // relative to the top of the viewport once `sticky` takes over, or always if `fixed` fallback is used
+  top: calc(100vh - 5rem);
+  
   display: inline-block;
   text-decoration: none;
   font-size: 2rem;
@@ -697,19 +709,4 @@ $scrollLength: 100vh;
   width: 3em;
   // Disable interaction with this element
   pointer-events: none;
-}
-
-main {
-  // leave room for the "scroll track"
-  padding: 0 3rem;
-  // required to make sure the `absolute` positioning of
-  // the anchor wrapper is indeed `relative` to this element vs. the body
-  position: relative;
-  max-width: 50rem;
-  margin: 2rem auto;
-
-  // Optional, clears margin if last element is a block item
-  *:last-child {
-    margin-bottom: 0;
-  }
 }
