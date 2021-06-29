@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Visionaire Player</title>
     <style>
-      body{margin:0;padding:0;background:#000;overflow:hidden;max-width:1366px;max-height:768px;}
+      body{margin:0;padding:0;background:#000;overflow:hidden;}
       .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; position:absolute;}
 	  #status {width: 100%; height: 30px; color:#fff; margin-left: auto; margin-right: auto; margin-top:35%;}
 	  
@@ -37,7 +37,7 @@
 		  <progress value="0" max="100" id="progress" hidden=1></progress>
 		</div>
 	</div>
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="width:100%;height:100%;left:0px;top:30px;"></canvas>
+    <div style="max-width:1366px;max-height:768px;"><canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="width:100%;height:100%;left:0px;top:30px;"></canvas></div>
 	<div style="font-family:monospace;position:absolute;color:#fff;padding:20px;padding-top:0px;left:40%;top:40%;right:40%;background:#400;border:5px #f00 solid;border-radius:10px;display:none;" id="error-message">
 		<h1>Fatal error</h1>
 	</div>
