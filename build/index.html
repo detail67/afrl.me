@@ -6,7 +6,7 @@
     <title>Visionaire Player</title>
     <style>
       body{margin:0;padding:0;background:#000;overflow:hidden;}
-      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; position:absolute; display:block; width:1366px; height:768px; min-width:0%; max-width:100%; min-height:0%; max-height:100%;}
+      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; position:absolute;}
 	  #status {width: 100%; height: 30px; color:#fff; margin-left: auto; margin-right: auto; margin-top:35%;}
 	  
 		.circle{
@@ -27,7 +27,7 @@
       div.emscripten { text-align: center; }
       div.emscripten_border { border: 1px solid black; }
       /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
-      canvas.emscripten { border: 0px none; }
+      canvas.emscripten { border: 0px none; width:1366px; height:768px; min-width:0%; max-width:100%; min-height:0%; max-height:100%;}
     </style>
   </head>
   <body>
