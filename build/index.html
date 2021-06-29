@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Visionaire Player</title>
+    <style>
+      body{margin:0;padding:0;background:#000;overflow:hidden;}
+      .emscripten { padding-right: 0; margin-left: auto; margin-right: auto; position:absolute;}
+	  #status {width: 100%; height: 30px; color:#fff; margin-left: auto; margin-right: auto; margin-top:35%;}
+	  
+		.circle{
+		 width: 5em;
+		height: 5em;
+		display: block;
+		border-radius: 50%;
+		background-color: green;
+		border: 2px solid green;
+		float: left;
+		margin: 1em;
+		background-image:
+        /* 10% = 126deg = 90 + ( 360 * .1 ) */
+        linear-gradient(126deg, transparent 50%, white 50%),
+        linear-gradient(90deg, white 50%, transparent 50%);
+	}
+      textarea.emscripten { font-family: monospace; width: 80%; }
+      div.emscripten { text-align: center; }
+      div.emscripten_border { border: 1px solid black; }
+      /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+      canvas.emscripten { border: 0px none; }
+    </style>
+  </head>
+  <body style="max-width:1366px;max-height:768px;">
+	<div style="width:100%;height:100%;background:url(logo.png) center center no-repeat;display:block;position:absolute;font-family:monospace">
+	    <div class="emscripten" id="status"></div>
+		<div class="emscripten"  style="left:0px; top:30px;">
+		  <progress value="0" max="100" id="progress" hidden=1></progress>
+		</div>
+	</div>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="width:100%;height:100%;left:0px;top:30px;"></canvas>
+	<div style="font-family:monospace;position:absolute;color:#fff;padding:20px;padding-top:0px;left:40%;top:40%;right:40%;background:#400;border:5px #f00 solid;border-radius:10px;display:none;" id="error-message">
+		<h1>Fatal error</h1>
+	</div>
+    <textarea class="emscripten" id="output" rows="5" style="width:600px;left:0px; bottom:0px; display:none;"></textarea>
+    <script type='text/javascript'>
+	function isSupported(getStorage) {
+	  try {
+		const key = "checkLocalStorage";
+		getStorage().setItem(key, key);
+		getStorage().removeItem(key);
+		return true;
+	  } catch (e) {
+		return false;
+	  }
+	}
+	var localStorageAccessible = isSupported(() => localStorage);
+	function errorMessage(e)
+	{
+		var elem = document.getElementById("error-message");
+		elem.style.display = "block";
+		if(typeof e !== "object")
+			elem.innerHTML += e + "<br/>";
+		else if(e.message=="Script error.")
+			elem.innerHTML += "Could not load the files because of a cross origin error" + "<br/>";
+		else
+			elem.innerHTML += e.message + "<br />" + e.filename + ":" + e.lineno + "<br/>";
+	}
+	function setPercent(loaded,total)
+	{
+	  if(total > 10000000)
+		Module.setStatus('Loading... (' + (Math.round(loaded / 1024 / 1024 * 100) / 100) + 'MB/' + (Math.round(total / 1024 / 1024 * 100) / 100) + 'MB)');
+	}
+	  
+			var files = ["Character000.vc","Interfaces.vi","Scene001.vs","data.vis","Character001.vc","Scene000.vs","config.ini"                                                                                             
+				];
+	  document.getElementById('canvas').width = window.innerWidth;
+	  document.getElementById('canvas').height = window.innerHeight;
+      var Module = {
+        preRun: [(function()
+		{
+			var len = files.length;
+			for (var i = 0; i < len; i++) 
+			{
+				var folder = files[i].split("/").slice(0,-1).join("/");
+				if(folder !="")
+					FS.createPath('/', folder, true, true);
+				FS.createPreloadedFile("/" + folder, files[i].split("/").pop(), files[i].replace(" ","%20"), true, false);
+			}
+			if(localStorageAccessible && localStorage.getItem("savedata")!==null && localStorage.getItem("savedata") != "")
+			{
+				FS.createPath("/", "save", true, true);
+				var obj = JSON.parse(localStorage.getItem("savedata"));
+				for(var i in obj)
+				{
+					if(typeof obj[i] != "object")
+					{
+						FS.writeFile("/save/" + i, base64ToBuffer(obj[i]), {encoding: "binary"});
+					}
+					else
+					{
+						FS.createPath("/save/", i, true, true);
+						for(var j in obj[i])
+						{
+							FS.writeFile("/save/" + i + "/" + j, base64ToBuffer(obj[i][j]), {encoding: "binary"});
+						}
+					}
+				}
+			}
+		})],
+		onAbort: function(e) { errorMessage(e); },
+        postRun: [],
+        print: (function() {
+		  return function(text)
+		  {
+            console.log(text);
+		  };
+        })(),
+        printErr: function(text) {
+          text = Array.prototype.slice.call(arguments).join(' ');
+          if (0) { // XXX disabled for safety typeof dump == 'function') {
+            dump(text + '\n'); // fast, straight to the real console
+          } else {
+            console.log(text);
+          }
+        },
+        canvas: document.getElementById('canvas'),
+        setStatus: function(text) {
+          if (!Module.setStatus.last) Module.setStatus.last = { time: Date.now(), text: '' };
+          if (text === Module.setStatus.text) return;
+          var m = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+          var now = Date.now();
+          if (m && now - Date.now() < 30) return; // if this is a progress update, skip it if too soon
+          var statusElement = document.getElementById('status');
+          statusElement.innerHTML = text;
+          var progressElement = document.getElementById('progress');
+          if (m) {
+            text = m[1];
+            progressElement.value = parseInt(m[2])*100;
+            progressElement.max = parseInt(m[4])*100;
+            progressElement.hidden = false;
+          } else {
+            progressElement.value = null;
+            progressElement.max = null;
+            progressElement.hidden = true;
+          }
+        },
+        totalDependencies: files.length,
+        monitorRunDependencies: function(left) {
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'Preparing...');
+        }
+      };
+	  
+	  function base64ToBuffer(base64) {
+		var binstr = atob(base64);
+		var buf = new Uint8Array(binstr.length);
+		Array.prototype.forEach.call(binstr, function (ch, i) {
+		  buf[i] = ch.charCodeAt(0);
+		});
+		return buf;
+	  }
+	  
+      function arrayToBase64(buf) {
+		var binstr = Array.prototype.map.call(buf, function (ch) {
+			return String.fromCharCode(ch < 0 ? Math.abs(ch) + 127 : ch);
+		}).join('');
+		return btoa(binstr);
+	  }
+	  
+      function bufferToBase64(buf) {
+		var binstr = Array.prototype.map.call(buf, function (ch) {
+			return String.fromCharCode(ch);
+		}).join('');
+		return btoa(binstr);
+	  }
+	  
+	  var lasttimestamp = 0;
+	  function Save()
+	  {
+	  	//alert('save');
+	    var obj = {};
+		for(var i in FS.root.contents.save.contents)
+		{
+			if(i=="messages.log" || i=="config.ini")
+				continue;
+			if(Array.isArray(FS.root.contents.save.contents[i].contents))
+				obj[i] = bufferToBase64(new Uint8Array(FS.root.contents.save.contents[i].contents));
+			else if(FS.root.contents.save.contents[i].contents instanceof Uint8Array)
+				obj[i] = bufferToBase64(FS.root.contents.save.contents[i].contents);
+			else
+			{
+				obj[i] = {};
+				for(var j in FS.root.contents.save.contents[i].contents)
+				{
+					if(Array.isArray(FS.root.contents.save.contents[i].contents[j].contents))
+						obj[i][j] = bufferToBase64(new Uint8Array(FS.root.contents.save.contents[i].contents[j].contents));
+					else if(FS.root.contents.save.contents[i].contents[j].contents instanceof Uint8Array)
+						obj[i][j] = bufferToBase64(FS.root.contents.save.contents[i].contents[j].contents);
+					else
+						alert(j + " not saved");
+				}
+			}
+		}
+		localStorage.setItem("savedata",JSON.stringify(obj));
+	  }
+	  function checkSave()
+	  {
+	  	
+		setTimeout(checkSave, 1000);
+		if(FS == undefined || FS.root.contents.save == undefined)
+		{
+			return;
+		}
+		var tstep = 0;
+		for(var i in FS.root.contents.save.contents)
+		{
+			if(i=="messages.log" || i=="config.ini")
+				continue;
+			if(Array.isArray(FS.root.contents.save.contents[i].contents))
+				tstep = Math.max(tstep, FS.root.contents.save.contents[i].timestamp);
+			else if(FS.root.contents.save.contents[i].contents instanceof Uint8Array)
+				tstep = Math.max(tstep, FS.root.contents.save.contents[i].timestamp);
+			else
+			{
+				for(var j in FS.root.contents.save.contents[i].contents)
+				{
+					if(Array.isArray(FS.root.contents.save.contents[i].contents[j].contents))
+						tstep = Math.max(tstep, FS.root.contents.save.contents[i].contents[j].timestamp);
+					else if(FS.root.contents.save.contents[i].contents[j].contents instanceof Uint8Array)
+						tstep = Math.max(tstep, FS.root.contents.save.contents[i].contents[j].timestamp);
+				}
+			}
+		}
+		if(tstep > lasttimestamp)
+		{
+			lasttimestamp = tstep;
+			Save();
+		}
+		
+	  }
+	  if(localStorageAccessible)
+		setTimeout(checkSave, 1000);
+	  
+      Module.setStatus('Downloading...');
+    </script>
+    <script async type="text/javascript" src="visplayer.js"></script>
+  </body>
+</html>
+
+
+

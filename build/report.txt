@@ -1,0 +1,134 @@
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\Character000.vc'
+-------------------------------------------------------------------------------
+Characters\Freddy\Freddy_Walking_R_01.png
+Characters\Freddy\Freddy_Walking_R_02.png
+Characters\Freddy\Freddy_Walking_R_03.png
+Characters\Freddy\Freddy_Walking_R_04.png
+Characters\Freddy\Freddy_Walking_R_05.png
+Characters\Freddy\Freddy_Walking_R_06.png
+Characters\Freddy\Freddy_Walking_R_07.png
+Characters\Freddy\Freddy_Walking_R_08.png
+Characters\Freddy\Freddy_Walking_R_09.png
+Characters\Freddy\Freddy_Walking_R_10.png
+Characters\Freddy\Freddy_Walking_R_11.png
+Characters\Freddy\Freddy_Walking_R_12.png
+Characters\Freddy\Freddy_Walking_L_01.png
+Characters\Freddy\Freddy_Walking_L_02.png
+Characters\Freddy\Freddy_Walking_L_03.png
+Characters\Freddy\Freddy_Walking_L_04.png
+Characters\Freddy\Freddy_Walking_L_05.png
+Characters\Freddy\Freddy_Walking_L_06.png
+Characters\Freddy\Freddy_Walking_L_07.png
+Characters\Freddy\Freddy_Walking_L_08.png
+Characters\Freddy\Freddy_Walking_L_09.png
+Characters\Freddy\Freddy_Walking_L_10.png
+Characters\Freddy\Freddy_Walking_L_11.png
+Characters\Freddy\Freddy_Walking_L_12.png
+Characters\Freddy\Fred_Idle_Talk_R_01.png
+Characters\Freddy\Fred_Idle_Talk_R_02.png
+Characters\Freddy\Fred_Idle_Talk_R_03.png
+Characters\Freddy\Fred_Idle_Talk_L_01.png
+Characters\Freddy\Fred_Idle_Talk_L_02.png
+Characters\Freddy\Fred_Idle_Talk_L_03.png
+Characters\Freddy\Fred_Idle_Talk_FL_01.png
+Characters\Freddy\Fred_Idle_Talk_FL_02.png
+Characters\Freddy\Fred_Idle_Talk_FL_03.png
+Characters\Freddy\Fred_Idle_Talk_F_01.png
+Characters\Freddy\Fred_Idle_Talk_F_02.png
+Characters\Freddy\Fred_Idle_Talk_F_03.png
+Characters\Freddy\Fred_Idle_Talk_FR_01.png
+Characters\Freddy\Fred_Idle_Talk_FR_02.png
+Characters\Freddy\Fred_Idle_Talk_FR_03.png
+Characters\Freddy\Freddy_Standing_R.png
+Characters\Freddy\Freddy_Standing_BR.png
+Characters\Freddy\Freddy_Standing_B.png
+Characters\Freddy\Freddy_Standing_BL.png
+Characters\Freddy\Freddy_Standing_L.png
+Characters\Freddy\Freddy_Standing_FL.png
+Characters\Freddy\Freddy_Standing_F.png
+Characters\Freddy\Freddy_Standing_FR.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FL_01.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FL_02.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FL_03.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_F_01.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_F_02.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_F_03.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FR_01.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FR_02.png
+Characters\Freddy\Fred_Idle_Look_Down_Talk_FR_03.png
+Characters\Freddy\Fred_Idle_Look_Down_R.png
+Characters\Freddy\Fred_Idle_Look_Down_L.png
+Characters\Freddy\Fred_Idle_Look_Down_FL.png
+Characters\Freddy\Fred_Idle_Look_Down_F.png
+Characters\Freddy\Fred_Idle_Look_Down_FR.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_R_01.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_R_02.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_R_03.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_FR_01.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_FR_02.png
+Characters\Freddy\Fred_Idle_Look_Up_Talk_FR_03.png
+Characters\Freddy\Fred_Idle_Look_Up_R.png
+Characters\Freddy\Fred_Idle_Look_Up_L.png
+Characters\Freddy\Fred_Idle_Look_Up_FL.png
+Characters\Freddy\Fred_Idle_Look_Up_F.png
+Characters\Freddy\Fred_Idle_Look_Up_FR.png
+--------------------------------------------------------------------------------
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\Interfaces.vi'
+-------------------------------------------------------------------------------
+Interfaces\Inventory.png
+--------------------------------------------------------------------------------
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\Scene001.vs'
+-------------------------------------------------------------------------------
+Scenes\Sitting Rock\Branch_B.png
+--------------------------------------------------------------------------------
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\data.vis'
+-------------------------------------------------------------------------------
+Interfaces\Fonts\KGCorneroftheSky.ttf
+Interfaces\Items\Blueberry_inventory.png
+Interfaces\Items\Stick_inventory.png
+Interfaces\Items\Flower_inventory.png
+Interfaces\Items\Fly_on_a_Stick_inventory.png
+Interfaces\Cursor_Active.png
+Interfaces\Cursor_Inactive.png
+tmp\game.veb
+--------------------------------------------------------------------------------
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\Character001.vc'
+-------------------------------------------------------------------------------
+Characters\Frieda\Frieda_Standing_R.png
+Characters\Frieda\Frieda_Standing_F.png
+Characters\Frieda\Frieda_sitting_front_head_FL_01.png
+Characters\Frieda\Frieda_sitting_front_head_FL_02.png
+Characters\Frieda\Frieda_sitting_front_head_FL_03.png
+Characters\Frieda\Frieda_sitting_front_head_L.png
+Characters\Frieda\Frieda_sitting_front_Sad.png
+Characters\Frieda\Frieda_Standing_L.png
+--------------------------------------------------------------------------------
+Container 'C:\Users\AFRLme\Desktop\Freddy Frog 001\build\Scene000.vs'
+-------------------------------------------------------------------------------
+Scenes\Sitting Rock\FF_01 BG.png
+Scenes\Sitting Rock\Flowers.png
+Scenes\FF_Frame OL.png
+Scenes\Sitting Rock\Blueberry_Patch.png
+Scenes\Sitting Rock\Flower.png
+Scenes\Sitting Rock\Rock.png
+Scenes\Sitting Rock\Blueberry.png
+Scenes\Sitting Rock\Branch_A.png
+Scenes\Sitting Rock\Fly.png
+Scenes\Sitting Rock\Stick.png
+--------------------------------------------------------------------------------
+
+Containers:
+
+
+Character000.vc 1 Freddy
+
+Character001.vc 2 Frieda
+
+Interfaces.vi 0 
+
+Scene000.vs 3 Intro
+
+Scene001.vs 2 Scene_01
+
+data.vis 0 
+
