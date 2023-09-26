@@ -29,7 +29,7 @@
     <link href="css/creative.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style10.css" />
     <link rel="stylesheet" type="text/css" href="css/style_common.css" />
-    <link rel="stylesheet" type="text/css" href="css/tooltip.css" />
+    <!--link rel="stylesheet" type="text/css" href="css/tooltip.css" /-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,6 +61,23 @@
         };
     </script>
 
+    <script>
+        function myFunction() {
+          // Get the text field
+          var copyText = document.getElementById("myInput");
+
+          // Select the text field
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); // For mobile devices
+
+          // Copy the text inside the text field
+          navigator.clipboard.writeText(copyText.value);
+
+          // Alert the copied text
+          alert("Copied the text: " + copyText.value);
+        } 
+    </script>
+    
 </head>
 
 <body id="about">
@@ -504,7 +521,9 @@
                 
                 <div class="col-lg-6">
                     <!--p style="z-index:99;"><a href="https://discord.gg/prQJMs9" target="_blank"><img src="img/detail_discord.png"></a></p-->
-                    <p style="z-index:99;" data-tooltip="@ AFRLME" data-tooltip-location="left"><img src="img/detail_discord.png"></p>
+                    <!--p style="z-index:99;" data-tooltip="@ AFRLME" data-tooltip-location="left"><img src="img/detail_discord.png"></p-->
+                    <input type="text" value="afrlme" id="myInput">
+                    <p style="z-index:99;"><a href="" cursor="copy" onclick="myFunction()"><img src="img/detail_discord.png"></a></p>
                 </div>       
                                                                      
             </div><! --/row -->
