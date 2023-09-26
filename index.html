@@ -62,21 +62,16 @@
     </script>
 
     <script>
-        function myFunction() {
-          // Get the text field
-          var copyText = document.getElementById("myInput");
-
-          // Select the text field
-          copyText.select();
-          copyText.setSelectionRange(0, 99999); // For mobile devices
-
-          // Copy the text inside the text field
-          navigator.clipboard.writeText(copyText.value);
-
-          // Alert the copied text
-          alert("Copied the text: " + copyText.value);
-        } 
-    </script>
+        function CopyToClipboard(id)
+        {
+            var r = document.createRange();
+            r.selectNode(document.getElementById(id));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(r);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+         }
+</script>
     
 </head>
 
@@ -522,8 +517,8 @@
                 <div class="col-lg-6">
                     <!--p style="z-index:99;"><a href="https://discord.gg/prQJMs9" target="_blank"><img src="img/detail_discord.png"></a></p-->
                     <!--p style="z-index:99;" data-tooltip="@ AFRLME" data-tooltip-location="left"><img src="img/detail_discord.png"></p-->
-                    <span value="afrlme" id="myInput" style="visibility:hidden;">afrlme</span>
-                    <p style="z-index:99;cursor:copy;" onclick="myFunction()"><img src="img/detail_discord.png"></p>
+                    <span id="discord_handle" style="visibility:hidden;">afrlme</span>
+                    <p style="z-index:99;"><a href="#" style="cursor:copy;" onclick="CopyToClipboard('discord_handle'); return false;"><img src="img/detail_discord.png"></a></p>
                 </div>       
                                                                      
             </div><! --/row -->
