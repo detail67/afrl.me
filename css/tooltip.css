@@ -33,9 +33,9 @@
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0.9);
   background-image: linear-gradient(30deg,
-    rgba(59, 72, 80, 0.44),
-    rgba(59, 68, 75, 0.44),
-    rgba(60, 82, 88, 0.44));
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8));
   box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
   color: #000;
   text-align: center;
@@ -103,7 +103,7 @@
 /* Arrow */
 [data-tooltip-location="left"]:after {
   border-width: var(--arrow-size) 0px var(--arrow-size) var(--arrow-size);
-  border-color: transparent transparent transparent rgba(55, 64, 70, 0.9);
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
   transform-origin: left;
   transform: translateY(50%) scaleX(0);
 }
